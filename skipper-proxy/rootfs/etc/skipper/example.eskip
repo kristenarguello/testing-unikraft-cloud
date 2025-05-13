@@ -1,0 +1,30 @@
+testing: 
+  Path("/agent1")
+  -> setRequestHeader("Host", "summer-gorilla-uy4l84j8.fra0.kraft.host")
+  -> setPath("/chat")
+  -> "https://summer-gorilla-uy4l84j8.fra0.kraft.host";
+
+
+fastapiDocs:
+  Path("/agent1/docs") 
+  -> setRequestHeader("Host", "summer-gorilla-uy4l84j8.fra0.kraft.host") 
+  -> "https://summer-gorilla-uy4l84j8.fra0.kraft.host";
+
+
+fastapiOpenAPI:
+  Path("/agent1/openapi.json") 
+  -> setRequestHeader("Host", "summer-gorilla-uy4l84j8.fra0.kraft.host") 
+  -> "https://summer-gorilla-uy4l84j8.fra0.kraft.host";
+
+
+hello:
+  Path("/")
+  -> status(200)
+  -> inlineContent("Hello, world from Skipper on Unikraft!")
+  -> <shunt>;
+
+
+rest: *
+  -> status(404)
+  -> inlineContent("aaaaaaaaaa i am having a mental breakdown")
+  -> <shunt>;
