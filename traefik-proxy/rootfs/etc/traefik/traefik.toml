@@ -1,0 +1,14 @@
+[api]
+  dashboard = true
+  insecure = true
+
+[entryPoints]
+  [entryPoints.ping]
+    address = ":8082"
+
+[ping]
+  entryPoint = "ping"
+
+[providers]
+  [providers.file]
+    directory = "/etc/traefik/dynamic.toml"
