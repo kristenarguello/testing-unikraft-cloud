@@ -1,0 +1,27 @@
+# http routing section
+[http]
+  [http.routers]
+    # Define a connection between requests and services
+    [http.routers.agent1]
+      rule = "Path(`/agent1`)"
+      middlewares = ["set-host-header"]
+      service = "agent1-service"
+
+    [http.routers.agent1-docs]
+      rule = "Path(`/agent1/docs`)"
+      middlewares = ["set-host-header"]
+      service = "agent1-service"
+
+    [http.routers.agent1-openapi]
+      rule = "Path(`/agent1/openapi.json`)"
+      middlewares = ["set-host-header"]
+      service = "agent1-service"
+
+  [http.middlewares]
+    [http.middlewares.set-host-header.headers]
+      customRequestHeaders = { Host = "summer-gorilla-uy4l84j8.fra0.kraft.host" }
+  
+  [http.services]
+    [http.services.agent1-service.loadBalancer]
+      [[http.services.agent1-service.loadBalancer.servers]]
+        url = "https://summer-gorilla-uy4l84j8.fra0.kraft.host"

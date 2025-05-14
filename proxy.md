@@ -9,7 +9,6 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -d '{"input": "string"}'
 ```
-
 does not support streaming - uses a buffer of 8kb and 
 apparently cant modify that
 
@@ -23,3 +22,5 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -d '{"input": "string"}'
 ```
+
+

@@ -247,3 +247,5 @@ pyrightconfig.json
 
 # UNIKRAFT STUFF
 */.unikraft
+
+.allai/
